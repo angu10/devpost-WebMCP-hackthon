@@ -1,0 +1,9 @@
+{
+  "name": "webmcp-guard-studio",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "dev:backend": "cd backend && uvicorn app.main:app --reload --port 8000"
+  }
+}

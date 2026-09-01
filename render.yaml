@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: webmcp-guard-studio-api
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    plan: starter
+    envVars:
+      - key: SCANNER_MODE
+        value: heuristic
+      - key: PROMPT_GUARD_MODEL
+        value: meta-llama/Llama-Prompt-Guard-2-22M
+      - key: CORS_ORIGINS
+        value: "*"

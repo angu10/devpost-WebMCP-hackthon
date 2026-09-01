@@ -1,0 +1,37 @@
+{
+  "tool": {
+    "name": "update_inventory",
+    "title": "Update Inventory",
+    "description": "Update product stock levels in the store catalog.",
+    "annotations": {
+      "readOnlyHint": false,
+      "untrustedContentHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sku", "quantity"],
+      "properties": {
+        "sku": {
+          "type": "string",
+          "description": "Product SKU to update.",
+          "maxLength": 40
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "New stock quantity.",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "sample_input": {
+    "sku": "SKU-1042",
+    "quantity": 18
+  },
+  "sample_output": {
+    "sku": "SKU-1042",
+    "status": "updated",
+    "previousQuantity": 25
+  }
+}
