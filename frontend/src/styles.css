@@ -556,6 +556,122 @@ pre {
   margin-top: 10px;
 }
 
+.approval-card {
+  animation: approval-pulse 1.6s ease-in-out infinite;
+  background: #fdf8ef;
+  border: 1px solid #e8c35d;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px 12px;
+}
+
+@keyframes approval-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(232, 195, 93, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(232, 195, 93, 0.12);
+  }
+}
+
+.approval-head {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.approval-head span {
+  color: #596660;
+  font-size: 12px;
+}
+
+.approval-card p {
+  color: #3f4b46;
+  font-size: 13px;
+  margin: 6px 0 10px;
+}
+
+.approval-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.approve-button,
+.deny-button {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 800;
+  min-height: 32px;
+  padding: 0 16px;
+}
+
+.approve-button {
+  background: #2aa47b;
+  color: #ffffff;
+}
+
+.approve-button:hover {
+  background: #23906c;
+}
+
+.deny-button {
+  background: #ffffff;
+  border-color: #df806b;
+  color: #b3492f;
+}
+
+.deny-button:hover {
+  background: #fdf1ee;
+}
+
+.preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.preset-chip {
+  background: #f7f9f8;
+  border: 1px solid #cbd7d1;
+  border-radius: 999px;
+  color: #1f2925;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  min-height: 28px;
+  padding: 0 12px;
+}
+
+.preset-chip:hover {
+  border-color: #df806b;
+  color: #b3492f;
+}
+
+.preset-chip:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.copy-chip {
+  background: #f7f9f8;
+  border: 1px solid #cbd7d1;
+  border-radius: 999px;
+  color: #1f2925;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: auto;
+  min-height: 26px;
+  padding: 0 12px;
+}
+
+.copy-chip:hover {
+  border-color: #2aa47b;
+}
+
 .audit-row {
   align-items: center;
   border: 1px solid #dce3df;
