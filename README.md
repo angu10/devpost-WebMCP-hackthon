@@ -58,6 +58,38 @@ Also accepted: a bare tool object (`{ "name": ..., "description": ..., "inputSch
 
 Local development note: URL import requires HTTPS and blocks private hosts by default. To import from `http://localhost` during development, set `ALLOW_INSECURE_IMPORTS=true` and `ALLOW_PRIVATE_IMPORTS=true` on the backend.
 
+## How It Integrates
+
+```mermaid
+flowchart LR
+    subgraph dev [Developer's website]
+        T[WebMCP tool definition]
+        G[Guarded registerTool code]
+    end
+
+    subgraph studio [WebMCP Guard Studio]
+        I[Import: paste / file / URL]
+        A[Analyze: risk score + findings]
+        R[Red-team scanner]
+        C[Codegen: guarded tool]
+        Q[Human approval queue]
+        L[Audit log]
+    end
+
+    subgraph agent [Agent browser]
+        AG[AI agent via document.modelContext]
+    end
+
+    T -->|hosted manifest URL| I --> A --> C -->|copy into site| G
+    A --> R
+    AG -->|calls guardstudio_* tools| I
+    AG -->|calls guarded tool| Q
+    Q -->|human approves| G
+    Q -->|human denies| L
+    A --> L
+    Q --> L
+```
+
 ## Repository Structure
 
 ```text
