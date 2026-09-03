@@ -201,6 +201,11 @@ function App() {
             requestedAt: new Date().toLocaleTimeString()
           }
         ]);
+        window.setTimeout(() => {
+          document
+            .querySelector(".approval-card")
+            ?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 120);
         window.setTimeout(() => resolveApproval(id, false, true), 120_000);
       }),
     [resolveApproval]
