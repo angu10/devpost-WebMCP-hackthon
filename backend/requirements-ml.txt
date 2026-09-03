@@ -1,0 +1,6 @@
+# Optional: Prompt Guard model scanning (SCANNER_MODE=model).
+# Not installed on the Render free tier; the heuristic scanner is used there.
+-r requirements.txt
+transformers==4.48.0
+torch>=2.2.2
+huggingface-hub==0.27.1

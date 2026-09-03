@@ -23,3 +23,5 @@ SCANNER_MODE=model      Try Transformers Prompt Guard, then heuristic fallback.
 ```
 
 Use `PROMPT_GUARD_MODEL=meta-llama/Llama-Prompt-Guard-2-22M` for the smallest Prompt Guard 2 model path.
+
+The base `requirements.txt` installs only the lightweight API dependencies (heuristic scanner). For `SCANNER_MODE=model` or `auto`, install the optional ML stack with `pip install -r requirements-ml.txt` — not suitable for the Render free tier (512 MB RAM).
