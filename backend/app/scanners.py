@@ -15,12 +15,14 @@ PROMPT_GUARD_MODEL = os.getenv(
 
 INJECTION_PATTERNS: list[tuple[str, str]] = [
     ("ignore_previous", r"\bignore (all )?(previous|prior|above) (instructions|messages|rules)\b"),
-    ("system_prompt", r"\b(system|developer) (prompt|message|instructions?)\b"),
-    ("secret_exfiltration", r"\b(reveal|print|dump|exfiltrate|send).{0,40}\b(secret|token|api key|password|credential)s?\b"),
+    ("system_prompt", r"\b(system|developer) (prompt|message|note|instructions?|directive)\b"),
+    ("secret_exfiltration", r"\b(reveal|print|dump|exfiltrate|send|post|upload|forward|email|transmit).{0,40}\b(secret|token|api key|password|credential)s?\b"),
     ("policy_override", r"\b(disable|bypass|override|turn off).{0,40}\b(safety|guard|policy|filter|approval)\b"),
     ("role_play_jailbreak", r"\b(jailbreak|dan mode|developer mode|act as an unrestricted)\b"),
-    ("external_leak", r"\b(send|post|upload|forward).{0,60}\b(to|at)\b.{0,80}\b(http|webhook|email|slack|discord)\b"),
-    ("hidden_instruction", r"\bdo not (tell|mention|reveal).{0,80}\b(user|developer|owner|admin)\b"),
+    ("external_leak", r"\b(send|post|upload|forward|transmit).{0,60}\b(to|at)\b.{0,80}(https?://|www\.|webhook|email|slack|discord)"),
+    ("hidden_instruction", r"\b(do not|don't|never) (tell|mention|reveal|disclose|inform).{0,80}\b(user|developer|owner|admin)\b"),
+    ("concealment", r"\b(do not|don't|never|without) (tell(ing)?|mention(ing)?|disclos(e|ing)|reveal(ing)?|inform(ing)?)\b"),
+    ("silent_action", r"\bsilently (post|send|call|execute|run|forward|upload)\b"),
 ]
 
 
